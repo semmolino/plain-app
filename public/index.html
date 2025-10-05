@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PlaIn Projektsteuerung</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation / main menu -->
+    <div id="main-menu" class="view">
+      <h1>PlaIn Projektsteuerung</h1>
+      <nav>
+        <button id="btn-stammdaten">Stammdaten</button>
+        <button id="btn-mitarbeiter">Mitarbeiter</button>
+        <button id="btn-projekte">Projekte</button>
+      </nav>
+      <div id="dashboard">
+        <!-- Placeholder for future dashboard content -->
+        <p>Hier kommt das Dashboard …</p>
+      </div>
+    </div>
+
+    <!-- Stammdaten view -->
+    <div id="view-stammdaten" class="view hidden">
+      <h2>Stammdaten</h2>
+      <div class="form-group">
+        <label for="input-status">Projektstatus (Kurz):</label>
+        <input type="text" id="input-status" />
+        <button id="btn-save-status">Speichern</button>
+      </div>
+      <div class="form-group">
+        <label for="input-typ">Projekttyp (Kurz):</label>
+        <input type="text" id="input-typ" />
+        <button id="btn-save-typ">Speichern</button>
+      </div>
+      <button class="btn-back">Zurück zur Übersicht</button>
+      <div id="msg-stammdaten" class="message"></div>
+    </div>
+
+    <!-- Mitarbeiter view -->
+    <div id="view-mitarbeiter" class="view hidden">
+      <h2>Mitarbeiter</h2>
+      <div class="form-group">
+        <label for="input-username">Benutzername*:</label>
+        <input type="text" id="input-username" />
+      </div>
+      <div class="form-group">
+        <label for="input-titel">Titel:</label>
+        <input type="text" id="input-titel" />
+      </div>
+      <div class="form-group">
+        <label for="input-vorname">Vorname*:</label>
+        <input type="text" id="input-vorname" />
+      </div>
+      <div class="form-group">
+        <label for="input-nachname">Nachname*:</label>
+        <input type="text" id="input-nachname" />
+      </div>
+      <div class="form-group">
+        <label for="input-passwort">Passwort:</label>
+        <input type="password" id="input-passwort" />
+      </div>
+      <div class="form-group">
+        <label for="input-email">E‑Mail:</label>
+        <input type="email" id="input-email" />
+      </div>
+      <div class="form-group">
+        <label for="input-mobil">Mobilnummer:</label>
+        <input type="text" id="input-mobil" />
+      </div>
+      <div class="form-group">
+        <label for="input-personalnummer">Personalnummer:</label>
+        <input type="text" id="input-personalnummer" />
+      </div>
+      <div class="form-group">
+        <label for="select-geschlecht">Geschlecht*:</label>
+        <select id="select-geschlecht">
+          <option value="">Bitte wählen …</option>
+        </select>
+      </div>
+      <button id="btn-save-mitarbeiter">Speichern</button>
+	  	  <button id="btn-open-mitarbeiter-liste">Mitarbeiter bearbeiten</button>
+      <button class="btn-back">Zurück zur Übersicht</button>
+      <div id="msg-mitarbeiter" class="message"></div>
+    </div>
+
+	<!-- Mitarbeiter List / Edit/Delete View -->
+	<div id="view-mitarbeiter-liste" class="view hidden">
+	  <h2>Mitarbeiter Übersicht</h2>
+	  <table id="tbl-mitarbeiter">
+		<thead>
+		  <tr>
+			<th>Short Name</th>
+			<th>Titel</th>
+			<th>Vorname</th>
+			<th>Nachname</th>
+			<th>E-Mail</th>
+			<th>Mobil</th>
+			<th>Personalnummer</th>
+			<th>Geschlecht</th>
+			<th>Aktionen</th>
+		  </tr>
+		</thead>
+		<tbody></tbody>
+	  </table>
+
+	  <button class="btn-back">Zurück zur Übersicht</button>
+	  <div id="msg-mitarbeiter-liste" class="message"></div>
+	</div>
+
+    <!-- Projekte view -->
+    <div id="view-projekte" class="view hidden">
+      <h2>Projekte</h2>
+      <div class="form-group">
+        <label for="input-projektnr">Projektnummer*:</label>
+        <input type="text" id="input-projektnr" />
+      </div>
+      <div class="form-group">
+        <label for="input-projektname">Projektname*:</label>
+        <input type="text" id="input-projektname" />
+      </div>
+      <div class="form-group">
+        <label for="select-projektstatus">Projektstatus*:</label>
+        <select id="select-projektstatus">
+          <option value="">Bitte wählen …</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="select-projekttyp">Projekttyp*:</label>
+        <select id="select-projekttyp">
+          <option value="">Bitte wählen …</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="select-projektleiter">Projektleiter*:</label>
+        <select id="select-projektleiter">
+          <option value="">Bitte wählen …</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="input-honorar">Honorar:</label>
+        <input type="number" id="input-honorar" />
+      </div>
+      <div class="form-group">
+        <label for="input-nebenkosten">Nebenkosten:</label>
+        <input type="number" id="input-nebenkosten" />
+      </div>
+      <div class="form-group">
+        <label for="input-percent-honorar">% Honorar:</label>
+        <input type="number" id="input-percent-honorar" step="0.01" />
+      </div>
+      <div class="form-group">
+        <label for="input-percent-nebenkosten">% Nebenkosten:</label>
+        <input type="number" id="input-percent-nebenkosten" step="0.01" />
+      </div>
+      <button id="btn-save-projekt">Speichern</button>
+      <button class="btn-back">Zurück zur Übersicht</button>
+      <div id="msg-projekt" class="message"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>

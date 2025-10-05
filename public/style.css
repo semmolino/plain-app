@@ -1,0 +1,273 @@
+/* Reset / base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+  color: #f4f4f4;
+  line-height: 1.6;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+/* Headings */
+h1, h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 114, 255, 0.4);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 114, 255, 0.6);
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+/* Form Fields */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #f0f0f0;
+  font-size: 15px;
+  outline: none;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+/* Messages */
+.message {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  display: none;
+}
+
+.message.success {
+  background: #2ecc71;
+  color: white;
+}
+
+.message.error {
+  background: #e74c3c;
+  color: white;
+}
+
+/* View pages */
+.view {
+  transition: opacity 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* App Container with glassmorphism */
+#app {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+/* === Generic Editable Table === */
+.table-editable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.table-editable th,
+.table-editable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: middle;
+  font-size: 14px;
+  color: #eee;
+}
+
+/* === Inputs & Selects in Tables === */
+.table-editable input,
+.table-editable select {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+  box-sizing: border-box;
+}
+
+/* === Action Buttons in Table Cells === */
+.table-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.table-actions button {
+  padding: 6px 10px;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.table-actions button:hover {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+/* === Responsive Scroll for Views with Wide Tables === */
+.scrollable-view {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* === Optional: Responsive adjustments for mobile === */
+@media screen and (max-width: 768px) {
+  .table-editable th,
+  .table-editable td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .table-actions button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+/* ===== Table container fixes ===== */
+#view-mitarbeiter-liste {
+  overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+#view-mitarbeiter-liste h2 {
+  margin-top: 0;
+}
+
+/* ===== Responsive table ===== */
+#tbl-mitarbeiter {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#tbl-mitarbeiter th,
+#tbl-mitarbeiter td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: middle;
+}
+
+#tbl-mitarbeiter input,
+#tbl-mitarbeiter select {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* ===== Fix button layout in actions column ===== */
+#tbl-mitarbeiter td:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#tbl-mitarbeiter button {
+  padding: 6px 10px;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#tbl-mitarbeiter button:hover {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+/* ===== Scroll handling on smaller screens ===== */
+@media screen and (max-width: 768px) {
+  #tbl-mitarbeiter th,
+  #tbl-mitarbeiter td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  #tbl-mitarbeiter button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+/* Optional: import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
