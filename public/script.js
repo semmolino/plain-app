@@ -85,18 +85,18 @@ document.getElementById("btn-save-mitarbeiter").addEventListener("click", async 
   const msg = document.getElementById("msg-mitarbeiter");
 
   const payload = {
-    short_name: document.getElementById("input-username").value.trim(),
-    title: document.getElementById("input-titel").value.trim(),
-    first_name: document.getElementById("input-vorname").value.trim(),
-    last_name: document.getElementById("input-nachname").value.trim(),
-    password: document.getElementById("input-passwort").value,
-    email: document.getElementById("input-email").value.trim(),
-    mobile: document.getElementById("input-mobil").value.trim(),
-    personnel_number: document.getElementById("input-personalnummer").value.trim(),
-    gender_id: document.getElementById("select-geschlecht").value
+    NAME_SHORT: document.getElementById("input-username").value.trim(),
+    TITLE: document.getElementById("input-titel").value.trim(),
+    FIRST_NAME: document.getElementById("input-vorname").value.trim(),
+    LAST_NAME: document.getElementById("input-nachname").value.trim(),
+    PASSWORD: document.getElementById("input-passwort").value,
+    EMAIL: document.getElementById("input-EMAIL").value.trim(),
+    MOBILE: document.getElementById("input-mobil").value.trim(),
+    PERSONNEL_NUMBER: document.getElementById("input-personalnummer").value.trim(),
+    GENDER_ID: document.getElementById("select-geschlecht").value
   };
 
-  if (!payload.short_name || !payload.first_name || !payload.last_name || !payload.gender_id) {
+  if (!payload.NAME_SHORT || !payload.FIRST_NAME || !payload.LAST_NAME || !payload.GENDER_ID) {
     return showMessage(msg, "Bitte alle Pflichtfelder ausfüllen", "error");
   }
 
@@ -111,7 +111,7 @@ document.getElementById("btn-save-mitarbeiter").addEventListener("click", async 
     showMessage(msg, "Mitarbeiter gespeichert ✅", "success");
 
     ["input-username", "input-titel", "input-vorname", "input-nachname",
-     "input-passwort", "input-email", "input-mobil", "input-personalnummer"]
+     "input-passwort", "input-EMAIL", "input-mobil", "input-personalnummer"]
       .forEach(id => document.getElementById(id).value = "");
     document.getElementById("select-geschlecht").value = "";
   } catch (err) {
@@ -143,14 +143,14 @@ async function loadMitarbeiterList() {
       // Short name
       const tdShort = document.createElement("td");
       const inpShort = document.createElement("input");
-      inpShort.value = emp.SHORT_NAME || "";
+      inpShort.value = emp.NAME_SHORT || "";
       tdShort.appendChild(inpShort);
       tr.appendChild(tdShort);
 
       // Titel (salutation) will be edited in form mode
-      const tdTitle = document.createElement("td");
-      tdTitle.textContent = emp.TITLE || "";
-      tr.appendChild(tdTitle);
+      const tdtitle = document.createElement("td");
+      tdtitle.textContent = emp.TITLE || "";
+      tr.appendChild(tdtitle);
 
       // First name
       const tdVor = document.createElement("td");
@@ -166,14 +166,14 @@ async function loadMitarbeiterList() {
       tdNach.appendChild(inpNach);
       tr.appendChild(tdNach);
 
-      // Email
-      const tdEmail = document.createElement("td");
-      const inpEmail = document.createElement("input");
-      inpEmail.value = emp.EMAIL || "";
-      tdEmail.appendChild(inpEmail);
-      tr.appendChild(tdEmail);
+      // EMAIL
+      const tdEMAIL = document.createElement("td");
+      const inpEMAIL = document.createElement("input");
+      inpEMAIL.value = emp.EMAIL || "";
+      tdEMAIL.appendChild(inpEMAIL);
+      tr.appendChild(tdEMAIL);
 
-      // Mobile
+      // MOBILE
       const tdMobil = document.createElement("td");
       const inpMobil = document.createElement("input");
       inpMobil.value = emp.MOBILE || "";
@@ -217,11 +217,11 @@ function openEditEmployee(emp, tableRow) {
   const cells = tableRow.children;
 
   // TITLE cell is at index 1
-  const tdTitle = cells[1];
-  const selectTitle = document.createElement("input");
-  selectTitle.value = emp.TITLE || "";
-  tdTitle.textContent = "";
-  tdTitle.appendChild(selectTitle);
+  const tdtitle = cells[1];
+  const selecttitle = document.createElement("input");
+  selecttitle.value = emp.TITLE || "";
+  tdtitle.textContent = "";
+  tdtitle.appendChild(selecttitle);
 
   // GENDER cell is at index 7
   const tdGender = cells[7];
@@ -258,7 +258,7 @@ async function saveEmployeeEdits(empId, tableRow) {
   // Collect values from row inputs/select
   const cells = tableRow.children;
   const updated = {
-    SHORT_NAME: cells[0].querySelector("input").value.trim(),
+    NAME_SHORT: cells[0].querySelector("input").value.trim(),
     TITLE: cells[1].querySelector("input").value.trim(),
     FIRST_NAME: cells[2].querySelector("input").value.trim(),
     LAST_NAME: cells[3].querySelector("input").value.trim(),
@@ -269,7 +269,7 @@ async function saveEmployeeEdits(empId, tableRow) {
   };
 
   // Validate required
-  if (!updated.SHORT_NAME || !updated.FIRST_NAME || !updated.LAST_NAME || !updated.GENDER_ID) {
+  if (!updated.NAME_SHORT || !updated.FIRST_NAME || !updated.LAST_NAME || !updated.GENDER_ID) {
     showMessage(msg, "Bitte alle Pflichtfelder ausfüllen", "error");
     return;
   }
@@ -313,7 +313,7 @@ async function loadProjektDropdowns() {
   await Promise.all([
     loadDropdown("projektstatus", "projekte/statuses", "ID", "NAME_SHORT"),
     loadDropdown("projekttyp", "projekte/types", "ID", "NAME_SHORT"),
-    loadDropdown("projektleiter", "projekte/managers", "ID", "SHORT_NAME")
+    loadDropdown("projektleiter", "projekte/managers", "ID", "NAME_SHORT")
   ]);
 }
 
