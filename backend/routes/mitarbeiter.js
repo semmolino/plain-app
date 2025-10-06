@@ -91,7 +91,7 @@ module.exports = (supabase) => {
 
   router.post("/", async (req, res) => {
     const b = req.body;
-    if (!b.short_name || !b.first_name || !b.last_name || !b.GENDER_ID) {
+    if (!b.short_name || !b.first_name || !b.last_name || !b.gender_id) {
       return res.status(400).json({ error: "Pflichtfelder fehlen" });
     }
     const { data, error } = await supabase
