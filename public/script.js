@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3000/api";
+const API_BASE = "https://plain-app.onrender.com/api";
 
 // Utility to show/hide views
 function showView(viewId) {
