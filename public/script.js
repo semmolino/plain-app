@@ -1,4 +1,5 @@
-const API_BASE = "https://plain-app.onrender.com/api";
+const API_BASE = "https://plain-hci8.onrender.com/";
+
 
 // Utility to show/hide views
 function showView(viewId) {
