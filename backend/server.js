@@ -3,9 +3,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import stammdatenRoutes from './routes/stammdaten.js';
-import mitarbeiterRoutes from './routes/mitarbeiter.js';
-import projekteRoutes from './routes/projekte.js';
+import * as stammdatenRoutes from './routes/stammdaten.js';
+import * as projekteRoutes from './routes/projekte.js';
+import * as mitarbeiterRoutes from './routes/mitarbeiter.js';
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
